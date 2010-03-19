@@ -5,6 +5,7 @@ django-debug-toolbar
 django-annoying
 django-beehat
 docutils
+feedparser
 ipython
 south
 Werkzeug
