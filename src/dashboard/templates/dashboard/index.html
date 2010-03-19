@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
+    <ul>
+    {% for item in stream %}
+        <li><a href="{{ item.url }}">{{ item.value }}</a>, {{ item.time }}</li>
+    {% endfor %}
+    </ul>
+</section>
+
 <img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />
 
 <pre>
@@ -10,5 +18,7 @@ http://www.fogcreek.com/FogBugz/docs/60/topics/advanced/API.html
 http://nrg.wustl.edu/hudson/rssAll?flavor=rss20
 http://nrg.wustl.edu/hudson/job/xnat_dev_1/1542/api/json
 https://10.28.112.17/hg/cnda_xnat/rss-log
+http://code.google.com/feeds/p/xnatfs/hgchanges/basic
+http://www.pingdom.com/services/api/
 </pre>
 {% endblock %}

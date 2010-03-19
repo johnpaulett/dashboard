@@ -4,6 +4,7 @@ from django.db import models
 
 class DepartureManager(models.Manager):
     def upcoming(self, direction):
+        #TODO switch to use 24-hr block instead of rest of today
         return self.filter(direction=direction,
                            time__gt=datetime.now().time())
 
