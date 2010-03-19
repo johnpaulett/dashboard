@@ -1,0 +1,38 @@
+{% load travel_tags %}
+<html>
+<head>
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print">
+<!--[if lt IE 8]>
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+
+    <div class="prepend-2 span-14">
+	{% block content %}
+	{% endblock %}
+    </div>
+    <aside class="span-6 last">
+	<h4>nilpc206 Resources</h4>
+	<ul>
+	    <li><a href="https://localhost/monit/">Monit</a></li>
+	    <li><a href="http://10.28.112.17/munin">Munin</a></li>
+	    <li><a href="https://10.28.112.17/hg/">Mercurial</a></li>
+	</ul>
+	<h4>NRG Resources</h4>
+	<ul>
+	    <li><a href="http://nrg.wustl.edu/fogbugz/">FogBugz</a></li>
+	    <li><a href="http://nrg.wustl.edu/hudson/">Hudson</a></li>
+	    <li><a href="http://bruckner/munin/">Munin</a></li>
+	    <!--<li><a href=""></a></li>-->
+	</ul>
+	{% upcoming_departures 5 %}
+
+    </aside>
+</div>
+
+</div>
+</body>
+</html>

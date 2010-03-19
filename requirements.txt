@@ -1,0 +1,10 @@
+-e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django
+
+django-extensions
+django-debug-toolbar
+django-annoying
+django-beehat
+docutils
+ipython
+south
+Werkzeug
