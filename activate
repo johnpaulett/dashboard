@@ -1,0 +1,2 @@
+#. env/src/django/extras/django_bash_completion
+source env/bin/activate
