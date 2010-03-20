@@ -58,7 +58,7 @@ class Event(models.Model):
     server = models.ForeignKey('Server')
     service = models.TextField()
     state = models.PositiveIntegerField()
-    action = models.PositiveIntegerField
+    action = models.PositiveIntegerField()
     message = models.TextField()    
 
 def find(xml, path=None, attr=None):
