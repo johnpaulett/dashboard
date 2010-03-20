@@ -1,7 +1,7 @@
 -e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django
 
 django-extensions
-django-debug-toolbar
+django-debug-toolbar # -e git+git://github.com/robhudson/django-debug-toolbar.git#django-debug-toolbar
 django-annoying
 django-beehat
 docutils

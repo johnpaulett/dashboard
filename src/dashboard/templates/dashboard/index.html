@@ -2,6 +2,7 @@
 
 {% block content %}
 <section>
+    <h4>News Stream</h4>
     <ul>
     {% for item in stream %}
         <li><a href="{{ item.url }}">{{ item.value }}</a>, {{ item.time }}</li>
@@ -10,13 +11,14 @@
 </section>
 
 <section>
-    {% for version in versions %}
-    
+    <h4>Monit Status</h4>
+    {% for server in monit_servers %}
+        {{ server }}
     {% endfor %}
 </section>
 
 
-<img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />
+<!--<img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />-->
 
 <pre>
 http://www.alistapart.com/articles/previewofhtml5

@@ -1,4 +1,4 @@
-{% load travel_tags %}
+{% load travel_tags dashboard_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +40,8 @@
 	    <!--<li><a href=""></a></li>-->
 	</ul>
 	{% upcoming_departures 5 %}
-
+	{% versions_widget %}
+	
     </aside>
 </div>
 
