@@ -8,6 +8,7 @@ docutils
 feedparser
 ipython
 lxml
+monit
 psycopg2
 south
 Werkzeug
