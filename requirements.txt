@@ -2,6 +2,7 @@
 
 django-extensions
 django-debug-toolbar # -e git+git://github.com/robhudson/django-debug-toolbar.git#django-debug-toolbar
+django-reversion
 django-annoying
 django-beehat
 docutils

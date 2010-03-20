@@ -26,22 +26,9 @@
 	{% endblock %}
     </div>
     <aside class="span-6 last">
-	<h4>nilpc206 Resources</h4>
-	<ul>
-	    <li><a href="https://localhost/monit/">Monit</a></li>
-	    <li><a href="http://10.28.112.17/munin">Munin</a></li>
-	    <li><a href="https://10.28.112.17/hg/">Mercurial</a></li>
-	</ul>
-	<h4>NRG Resources</h4>
-	<ul>
-	    <li><a href="http://nrg.wustl.edu/fogbugz/">FogBugz</a></li>
-	    <li><a href="http://nrg.wustl.edu/hudson/">Hudson</a></li>
-	    <li><a href="http://bruckner/munin/">Munin</a></li>
-	    <!--<li><a href=""></a></li>-->
-	</ul>
+        {% links_widget %}
 	{% upcoming_departures 5 %}
 	{% versions_widget %}
-	
     </aside>
 </div>
 

@@ -115,6 +115,7 @@ INSTALLED_APPS = (
     
     'debug_toolbar',
     'django_extensions',
+    'reversion',
     #'south',
 
     'dashboard',
@@ -128,3 +129,9 @@ INTERNAL_IPS = ('127.0.0.1',)
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
+
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+)
