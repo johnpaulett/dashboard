@@ -1,4 +1,19 @@
-# Django settings for board project.
+"""Default settings for django.  The user should create a settings.py file
+that is either a symlink to globalsettings.py::
+
+    ln -s `pwd`/globalsettings.py settings.py
+
+Or imports globalsettings and overrides specific settings, in settings.py::
+
+    from globalsettings import *
+
+    SECRET_KEY = ...
+    DATABASES = ...
+
+globalsettings defaults to a develop-friendly, sqlite & DEBUG=True environment.
+The users is expected to chose better settings in settings.py
+"""
+
 import os.path
 
 ROOT_DIR = os.path.dirname(__file__)
