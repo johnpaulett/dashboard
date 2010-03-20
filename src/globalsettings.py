@@ -22,7 +22,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('John Paulett', 'jpaulett@wustl.edu'),
+    ('John Paulett', 'john@paulett.org'),
 )
 
 MANAGERS = ADMINS
