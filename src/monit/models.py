@@ -74,7 +74,7 @@ def find(xml, path=None, attr=None):
         return elem.get(attr)
     return elem.text
 
-def collector(data):
+def collect(data):
     xml = etree.fromstring(data)
     monitid = find(xml, 'server/id')
     try:
@@ -85,23 +85,4 @@ def collector(data):
         
     server.process(xml)
     return server   
-
-#import httplib2
- #status_url = models.URLField()
-    #username = models.CharField()
-    #password = models.CharField()
-#   
-#
-#    def _connect(self):
-#        h = httplib2.Http()
-#        h.add_credentials(self.username, self.password)
-#        return h.request('%s/_status?format=xml' % self.monit_url)
-#    
-#    def check(self):
-#        resp, content = self._connect()
-#        if resp.status == 200:
-#            xml = etree.fromstring(content)
-#            for service in xml.findall('service'):
-#                service.find('name').text
-#                service.find'status').text
 

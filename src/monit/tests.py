@@ -1,9 +1,9 @@
 from django.test import TestCase
 from monit.models import *
 
-class CollectorTest(TestCase):
+class CollectTest(TestCase):
     def test_node_startup(self):
-        collector(STARTUP_MESSAGE)
+        collect(STARTUP_MESSAGE)
 
         server = Server.objects.get()
         self.assertEqual('4d545e009c94b0697f3a17ee62a9b311', server.monitid)
@@ -13,8 +13,8 @@ class CollectorTest(TestCase):
         self.assertEqual(0, server.service_set.count())
         
     def test_initial_update(self):
-        collector(STARTUP_MESSAGE)
-        collector(UPDATE_MESSAGE)
+        collect(STARTUP_MESSAGE)
+        collect(UPDATE_MESSAGE)
 
         server = Server.objects.get()
         self.assertEqual('4d545e009c94b0697f3a17ee62a9b311', server.monitid)      
@@ -36,7 +36,15 @@ class CollectorTest(TestCase):
         self.assertEqual(0, comp.status)
         self.assertEqual(5, comp.service_type)
         
+class CollectorViewTest(TestCase):
+    def test_simple_post(self):
+        response = self.client.post('/monit/collector',
+                                    STARTUP_MESSAGE,
+                                    content_type='text/xml')
+        self.assertEqual(200, response.status_code)
 
+        server = Server.objects.get()
+        self.assertEqual('4d545e009c94b0697f3a17ee62a9b311', server.monitid)      
 
 STARTUP_MESSAGE = """<?xml version="1.0" encoding="ISO-8859-1"?>   
 <monit>
