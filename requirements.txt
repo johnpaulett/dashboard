@@ -7,5 +7,7 @@ django-beehat
 docutils
 feedparser
 ipython
+lxml
+psycopg2
 south
 Werkzeug
