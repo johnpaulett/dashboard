@@ -1,12 +1,19 @@
-from datetime import datetime
+from datetime import date, datetime, time, timedelta
 from django.db import models
 
 
 class DepartureManager(models.Manager):
-    def upcoming(self, direction):
-        #TODO switch to use 24-hr block instead of rest of today
+    def upcoming(self, direction, now=None):
+        # allow upcoming() to be tested by setting current time
+        if now is None:
+            now = datetime.now().time()
+
+        # get the datetime.time object that is 24 hours in the future
+        #future = (datetime.combine(date.today(), now) + timedelta(1)).time()
+        #TODO rollover past midnight 
         return self.filter(direction=direction,
-                           time__gt=datetime.now().time())
+                           time__gt=now)
+                           #time__range=(now, future))
 
 DIRECTION_CHOICES = (
     ('E', 'Eastbound'),
