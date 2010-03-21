@@ -5,15 +5,15 @@ from datetime import timedelta
 from stream.models import Feed
 
 class LaunchFeedUpdatesTask(PeriodicTask):
-    run_every = timedelta(seconds=30)
+    run_every = timedelta(minutes=30)
 
     def run(self, **kwargs):
         logger = self.get_logger(**kwargs)
         logger.info("Running periodic task!")
         # spin of celery tasks for each feed
         for feed in Feed.objects.all():
-            feed.check()
-            #check_feed.delay(feed)
+            #feed.check()
+            check_feed.delay(feed)
             
 tasks.register(LaunchFeedUpdatesTask)
 
