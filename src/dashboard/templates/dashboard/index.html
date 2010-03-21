@@ -3,23 +3,40 @@
 {% block content %}
 <section>
     <h4>News Stream</h4>
-    <ul>
-    {% for item in stream %}
-        <li><a href="{{ item.url }}">{{ item.value }}</a>, {{ item.time }}</li>
-    {% endfor %}
-    </ul>
+    <table>
+	{% for date, items in stream.items %}
+        <tr>
+	    <td class="streamKey">{{ date|date:"l j M" }}</td>
+	    <td>
+		<ul>
+		    {% for item in items %}
+		    <li>
+			{{ item.time|date:"P" }}: 
+			<a href="{{ item.url }}">{{ item.value }}</a>
+		    </li>
+	            {% endfor %}
+		</ul>
+	    </td>
+	</tr>
+	{% endfor %}
+    </table>
+
 </section>
 
 <section>
     <h4>Monit Status</h4>
     {% for server in monit_servers %}
-        {{ server }}
+        <h5>{{ server }}</h5> 
+	<p>{{ server.uptime }}</p>
+        {% for service in server.service_set.all %}
+            <p>{{ service }} {{ service.uptime }} {{ service.status }}</p>
+        {% endfor %}
     {% endfor %}
 </section>
 
 
 <!--<img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />-->
-
+<h4>Temporary Links</h4>
 <pre>
 http://www.alistapart.com/articles/previewofhtml5
 https://localhost/monit/_status?format=xml
