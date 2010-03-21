@@ -37,7 +37,7 @@ def monit_widget():
         row = empty_row()
         row[0] = server
         for service in server.service_set.all():
-            row[services.index(service.name)+1] = service.status
+            row[services.index(service.name)+1] = service.get_status_display()
         table.append(row)
             
     return table
