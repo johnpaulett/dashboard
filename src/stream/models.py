@@ -1,3 +1,4 @@
+from calendar import timegm
 from datetime import datetime
 from django.db import models
 import feedparser
@@ -29,7 +30,9 @@ class Feed(models.Model):
             if len(existing) == 0:
                 Item.objects.create(guid=guid,
                                     url=entry.link,
-                                    time=datetime(*entry.date_parsed[0:6]),
+                                    # http://intertwingly.net/blog/2007/09/02/Dealing-With-Dates
+                                    time=datetime.utcfromtimestamp(timegm(entry.date_parsed)),
+                                    #time=datetime(*entry.date_parsed[0:6]),
                                     value=entry.title,
                                     feed=self)
 

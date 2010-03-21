@@ -3,19 +3,19 @@
 {% block content %}
 <section class="widget">
     <h4>News Stream</h4>
-    <table>
+    <table class="compactTable">
 	{% for date, items in stream.items %}
         <tr>
 	    <td class="streamKey">{{ date|date:"l j M" }}</td>
 	    <td>
-		<ul>
+		<table class="compactTable">
 		    {% for item in items %}
-		    <li>
-			{{ item.time|date:"P" }}: 
-			<a href="{{ item.url }}">{{ item.value }}</a>
-		    </li>
+		    <tr>
+			<td nowrap="nowrap">{{ item.time|date:"P" }}</td>
+			<td><a href="{{ item.url }}">{{ item.value }}</a></td>
+		    </tr>
 	            {% endfor %}
-		</ul>
+		</table>
 	    </td>
 	</tr>
 	{% endfor %}
