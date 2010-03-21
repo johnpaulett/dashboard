@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
+<section class="widget">
     <h4>News Stream</h4>
     <table>
 	{% for date, items in stream.items %}
@@ -23,7 +23,7 @@
 
 </section>
 
-<section>
+<section class="widget">
     <h4>Monit Status</h4>
     <table>
 	{% for row in monit_table %}
@@ -41,15 +41,18 @@
 
 
 <!--<img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />-->
-<h4>Temporary Links</h4>
-<pre>
-http://www.alistapart.com/articles/previewofhtml5
-https://localhost/monit/_status?format=xml
-http://www.fogcreek.com/FogBugz/docs/60/topics/advanced/API.html
-http://nrg.wustl.edu/hudson/rssAll?flavor=rss20
-http://nrg.wustl.edu/hudson/job/xnat_dev_1/1542/api/json
-https://10.28.112.17/hg/cnda_xnat/rss-log
-http://code.google.com/feeds/p/xnatfs/hgchanges/basic
-http://www.pingdom.com/services/api/
-</pre>
+<div class="widget">
+    <h4>Temporary Links</h4>
+    <pre>
+      http://www.alistapart.com/articles/previewofhtml5
+      https://localhost/monit/_status?format=xml
+      http://www.fogcreek.com/FogBugz/docs/60/topics/advanced/API.html
+      http://nrg.wustl.edu/hudson/rssAll?flavor=rss20
+      http://nrg.wustl.edu/hudson/job/xnat_dev_1/1542/api/json
+      https://10.28.112.17/hg/cnda_xnat/rss-log
+      http://code.google.com/feeds/p/xnatfs/hgchanges/basic
+      http://www.pingdom.com/services/api/
+    </pre>
+</div>
+
 {% endblock %}

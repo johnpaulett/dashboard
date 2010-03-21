@@ -1,6 +1,8 @@
-<h4>Dashboard Versions</h4>
-<ul>
-{% for product, version in versions.items %}
-    <li>{{ product }} &mdash; {{ version }}</li>
-{% endfor %}
-</ul>
+<div class="widget">
+    <h4>Dashboard Versions</h4>
+    <ul>
+        {% for product, version in versions.items %}
+	<li>{{ product }} &mdash; {{ version }}</li>
+	{% endfor %}
+    </ul>
+</div>

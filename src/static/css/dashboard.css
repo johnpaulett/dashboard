@@ -1,0 +1,59 @@
+@font-face {
+    /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+    font-family: "Fontin Sans";
+    src: url("../fonts/fontin_sans/Fontin_Sans_R_45b.otf");
+}
+
+@font-face {
+    /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+    font-family: "Fontin Sans";
+    font-weight: bold;
+    src: url("../fonts/fontin_sans/Fontin_Sans_B_45b.otf");
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Fontin Sans", sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+a {
+    color: #f00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0em;
+    color: #F0FFFF;
+}
+
+.streamKey {
+    /*-webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);*/
+    font-weight: bold;
+    vertical-align: top;
+    text-align: center;
+}
+
+.clock {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.widget {
+    background-color: #222;
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,4 +1,5 @@
 {% for category in categories %}
+<div class="widget">
     <h4>{{ category.title }}</h4>
     <ul>
     {% for link in category.link_set.all %}
@@ -7,4 +8,5 @@
 	</li>
     {% endfor %}
     </ul>
+</div>
 {% endfor %}
