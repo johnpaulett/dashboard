@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'ghettoq',
     'reversion',
+    'sorl.thumbnail',
     #'south',
 
     'dashboard',

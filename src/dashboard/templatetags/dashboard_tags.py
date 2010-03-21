@@ -1,28 +1,31 @@
-from beehat.template import render
-from dashboard.models import Category, Countdown
+from dashboard.models import Category, Countdown, RemoteImage
 from debug_toolbar.debug.version import DebugVersions
 from django import template
 
 register = template.Library()
 
-@register.simple_tag
+@register.inclusion_tag('dashboard/versions_widget.html')
 def versions_widget():
-    versions = DebugVersions().get_versions()
+    return {'versions': DebugVersions().get_versions()}
 
-    return render('dashboard/versions_widget.html',
-                  {'versions': versions})
-
-@register.simple_tag
+@register.inclusion_tag('dashboard/links_widget.html')
 def links_widget():
-    categories = Category.objects.all()
-    return render('dashboard/links_widget.html',
-                  {'categories': categories})
+    return {'categories': Category.objects.all()}
 
-@register.simple_tag
+@register.inclusion_tag('dashboard/countdowns_widget.html')
 def countdowns_widget():
     countdowns = Countdown.objects.upcoming()
-    return render('dashboard/countdowns_widget.html',
-                  {'countdowns': countdowns,
-                   'next_countdown': countdowns[0],
-                   'later_countdowns': countdowns[1:]})
+    return {'countdowns': countdowns,
+            'next_countdown': countdowns[0],
+            'later_countdowns': countdowns[1:]}
     
+@register.inclusion_tag('dashboard/remote_images_widget.html',
+                        takes_context=True)
+def remote_images_widget(context):
+    return {'images': RemoteImage.objects.filter(active=True),
+            #TODO seems like the template should be able to get a RequestContext
+            # but I am having issues doing so, so just pass the relevant
+            # variable
+            # http://squeeville.com/2009/01/27/django-templatetag-requestcontext-and-inclusion_tag/
+            'MEDIA_URL': context['MEDIA_URL']}
+

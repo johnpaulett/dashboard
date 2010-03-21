@@ -1,6 +1,6 @@
 from datetime import date, timedelta
 from django.test import TestCase
-from dashboard.models import Countdown
+from dashboard.models import *
 
 def make_countdown(title, year=2010, month=3, day=21):
     return Countdown.objects.create(title=title,
@@ -39,4 +39,21 @@ class CountdownTest(TestCase):
         self.assertEqual(b, upcoming[0])
         self.assertEqual(a, upcoming[1])
         self.assertEqual(c, upcoming[2])
+
+        
+class RemoteImageTest(TestCase):
+
+    def test_update(self):
+        import pdb; pdb.set_trace()
+        img = RemoteImage.objects.create(title='graph',
+                                         source='')
+
+        img.update()
+        self.assertTrue(img.last_update is not None)
+
+    def test_inactive(self):
+        img = RemoteImage.objects.create(title='graph', active=False)
+
+        img.update()
+        self.assertTrue(img.last_update is None)
         

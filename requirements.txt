@@ -1,16 +1,19 @@
 -e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django
 
 django-extensions
-django-debug-toolbar # -e git+git://github.com/robhudson/django-debug-toolbar.git#django-debug-toolbar
+django-debug-toolbar # -e git+git://github.com/robhudson/django-debug-toolbar.git#egg=django-debug-toolbar
 django-reversion
 django-annoying
 django-beehat
 docutils
 feedparser
+httplib2
 ipython
 lxml
-monit
+django-monit
+PIL
 psycopg2
+sorl-thumbnail
 south
 Werkzeug
 

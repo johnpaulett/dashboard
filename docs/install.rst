@@ -17,5 +17,5 @@ Deployment::
 
     sudo useradd --system --home-dir /home/dashboard --create-home dashboard --shell /bin/bash
     
-    sudo -u postgres createuser -D -A -W -R dashboard
+    sudo -u postgres createuser -d -A -W -R dashboard
     sudo -u postgres createdb -O dashboard dashboard

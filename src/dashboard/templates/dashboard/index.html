@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load dashboard_tags %}
 
 {% block content %}
+<section>
+    {% remote_images_widget %}
+</section>
+
 <section class="widget">
     <h4>News Stream</h4>
     <table class="compactTable">
@@ -36,11 +41,8 @@
 	</tr>
         {% endfor %}
     </table>
-
 </section>
 
-
-<!--<img src="http://10.28.112.17/munin/nilpc206/nilpc206-uptime-month.png" />-->
 <div class="widget">
     <h4>Temporary Links</h4>
     <pre>

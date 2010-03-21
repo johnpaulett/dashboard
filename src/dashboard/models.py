@@ -1,5 +1,8 @@
-from datetime import date
+from datetime import date, datetime
+from django.core.files.base import ContentFile
 from django.db import models
+from httplib2 import Http
+from urlparse import urlparse
 
 def default(value, default):
     return value if value is not None else default
@@ -46,3 +49,33 @@ class Countdown(models.Model):
 
     class Meta:
         ordering = ['date']
+
+
+class RemoteImage(models.Model):
+    source = models.URLField(verify_exists=False)
+    title = models.TextField(blank=True)
+    link = models.URLField(verify_exists=False, blank=True)
+    image = models.ImageField(upload_to='uploads', blank=True)
+    last_update = models.DateTimeField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def _filename(self, now):
+        return '%s%s' % (now, urlparse(self.source).path.replace('/', '_'))
+    
+    def update(self):
+        if not self.active:
+            return
+        
+        h = Http('.httplib2-cache')
+        # TODO be smart with caching and handle Not Modified
+        resp, content = h.request(self.source)
+        #import pdb; pdb.set_trace()
+        if resp.status in [200, 304]:
+            now = datetime.now()
+            if resp.status == 200:
+                self.image.save(self._filename(now), ContentFile(content))
+            self.last_update = now
+            self.save()

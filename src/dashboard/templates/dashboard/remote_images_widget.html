@@ -1,0 +1,34 @@
+{% load thumbnail %}
+
+<div class="widget">
+    <h4>Munin</h4>
+    <div>
+        {% for image in images %}
+	    <div class="galleryImage">
+                {% if image.image %}
+                    <a rel="lightbox" href="{{ image.image.url }}">  
+                        <img src="{% thumbnail image.image 200x109 %}" />
+		    </a> 
+		    <br />
+		    {% if image.link %}
+		        <a href="{{ image.link }}">{{ image.title }}</a>
+		    {% else %}
+  		        {{ image.title }}
+		    {% endif %}
+		{% endif %}
+	    </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+    $('a[rel="lightbox"]').lightBox({
+        imageLoading: '{{ MEDIA_URL }}images/lightbox-ico-loading.gif',
+	imageBtnClose: '{{ MEDIA_URL }}images/lightbox-btn-close.gif',
+	imageBtnPrev: '{{ MEDIA_URL }}images/lightbox-btn-prev.gif',
+	imageBtnNext: '{{ MEDIA_URL }}images/lightbox-btn-next.gif',
+        imageBlank: '{{ MEDIA_URL }}images/lightbox-blank.gif'
+    });
+});
+</script>
