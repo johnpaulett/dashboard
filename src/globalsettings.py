@@ -76,7 +76,9 @@ MEDIA_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'bc=t0*n8mf9ks*y%=n7(pc!muaaljnv3-&hpbt(3-&qgk07&d='
+# To generate a new secret key, run:
+#    python -c "from random import choice; print ''.join([choice('abcdefghijklmnopqrstuvwxyz0123456789%^&*(-_=+)') for i in range(50)])"
+SECRET_KEY = 'not a secret, replace it with a real secret key'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
