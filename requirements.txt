@@ -13,3 +13,7 @@ monit
 psycopg2
 south
 Werkzeug
+
+# celery depedencies
+celery
+ghettoq

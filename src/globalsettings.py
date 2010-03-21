@@ -114,9 +114,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
-    
+
+    'celery',
     'debug_toolbar',
     'django_extensions',
+    'ghettoq',
     'reversion',
     #'south',
 
@@ -137,3 +139,5 @@ logging.basicConfig(
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s',
 )
+
+CARROT_BACKEND = 'ghettoq.taproot.Database'

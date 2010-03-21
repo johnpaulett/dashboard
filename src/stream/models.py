@@ -24,11 +24,14 @@ class Feed(models.Model):
         for entry in feed.entries:
             guid = entry.guid
             existing = Item.objects.filter(feed=self, guid=guid)
+            # TODO consider updating existing feeds in case something
+            # is changed
             if len(existing) == 0:
                 Item.objects.create(guid=guid,
                                     url=entry.link,
                                     time=datetime(*entry.date_parsed[0:6]),
                                     value=entry.title,
                                     feed=self)
+
     def __unicode__(self):
         return unicode(self.url)
