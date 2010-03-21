@@ -25,13 +25,18 @@
 
 <section>
     <h4>Monit Status</h4>
-    {% for server in monit_servers %}
-        <h5>{{ server }}</h5> 
-	<p>{{ server.uptime }}</p>
-        {% for service in server.service_set.all %}
-            <p>{{ service }} {{ service.uptime }} {{ service.status }}</p>
+    <table>
+	{% for row in monit_table %}
+	<tr>
+            {% for column in row %}
+	    <td>
+		{{ column }}
+	    </td>
+	    {% endfor %}
+	</tr>
         {% endfor %}
-    {% endfor %}
+    </table>
+
 </section>
 
 
