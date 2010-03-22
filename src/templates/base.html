@@ -9,14 +9,19 @@
 <!--[if lt IE 8]>
   <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
 <![endif]-->
-<link rel="stylesheet" href="{{ MEDIA_URL }}css/dashboard.css" type="text/css" media="screen, projection">
-
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/dark-hive/jquery-ui-1.8.custom.css" />	
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" media="screen" />
 
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/dashboard.css" type="text/css" media="screen, projection">
 
+
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-ui-1.8.custom.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/modernizr-1.1.min.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/dashboard.js"></script>
+
 
 
 <title>{% block title %}dashboard{% endblock %}
@@ -48,5 +53,6 @@
     powered by <a href="http://github.com/johnpaulett/dashboard">dashboad</a>.
     <a href="http://johnpaulett.com">John Paulet</a>
 </footer>
+
 </body>
 </html>
