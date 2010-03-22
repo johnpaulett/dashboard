@@ -66,6 +66,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.widget p {
+    margin: 0;
+}
+
 .compactTable td {
     padding: 0 4px 0 4px;
     vertical-align: top;
@@ -75,4 +79,8 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-weight: bold;
     display: inline-block;
+}
+
+.muninWidget {
+    text-align: center;
 }

@@ -1,15 +1,10 @@
 <div class="widget">
     <h4>Countdowns</h4>
-    <table>
-        <tr>
-            <th>Days Left</th>
-	    <th>Title</th>
-        </tr>
-        {% for countdown in countdowns %}
-	<tr>
-            <td>{{ countdown.until.days }}</td>
-	    <td>{{ countdown.title }}</td>
-	</tr>
-	{% endfor %}
-    </table>
+    {% for countdown in countdowns %}
+        <p>
+            <b>{{ countdown.until.days }}</b> 
+	    days until 
+	    <b>{{ countdown.title }}</b>
+	</p>
+    {% endfor %}
 </div>
