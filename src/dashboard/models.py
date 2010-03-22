@@ -55,7 +55,7 @@ class RemoteImage(models.Model):
     source = models.URLField(verify_exists=False)
     title = models.TextField(blank=True)
     link = models.URLField(verify_exists=False, blank=True)
-    image = models.ImageField(upload_to='uploads', blank=True)
+    image = models.ImageField(upload_to='uploads/remote_images', blank=True)
     last_update = models.DateTimeField(null=True, blank=True)
     active = models.BooleanField(default=True)
 
