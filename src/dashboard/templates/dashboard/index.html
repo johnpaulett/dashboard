@@ -5,24 +5,22 @@
 <section>
     {% remote_images_widget %}
 </section>
-
 <section class="widget">
+
     <h4>News Stream</h4>
     <table class="compactTable">
 	{% for date, items in stream.items %}
         <tr>
-	    <td class="streamKey">{{ date|date:"l j M" }}</td>
-	    <td>
-		<table class="compactTable">
-		    {% for item in items %}
-		    <tr>
-			<td nowrap="nowrap">{{ item.time|date:"P" }}</td>
-			<td><a href="{{ item.url }}">{{ item.value }}</a></td>
-		    </tr>
-	            {% endfor %}
-		</table>
+	    <td class="streamKey" rowspan="{{ items|length }}">
+	        {{ date|date:"l j M" }}
 	    </td>
-	</tr>
+	    {% for item in items %}
+	        {# little craziness due to rowspan #}
+	        {% if not forloop.first %}<tr>{% endif %}
+		    <td nowrap="nowrap">{{ item.time|date:"P" }}</td>
+		    <td><a href="{{ item.url }}">{{ item.value }}</a></td>
+	        </tr>
+	    {% endfor %}
 	{% endfor %}
     </table>
 
