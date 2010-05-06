@@ -1,0 +1,12 @@
+#!/bin/bash
+ENV="env"
+REQUIRE="requirements.txt"
+
+# create a virtual environment
+virtualenv --no-site-packages $ENV
+source activate
+
+# install the dependencies
+easy_install pip
+$ENV/bin/pip install -r $REQUIRE
+

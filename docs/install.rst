@@ -2,7 +2,7 @@ Installation
 ============
 
 ::
-    sudo apt-get install python-dev postgresql-server-dev-8.4 
+    sudo apt-get install python-dev postgresql-server-dev-8.4 libxml2-dev libxslt-dev 
 
 
 ::
