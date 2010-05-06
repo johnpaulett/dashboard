@@ -17,7 +17,10 @@ sorl-thumbnail
 south
 Werkzeug
 
-# celery depedencies
+# celery dependencies
 celery
 #celerymon
 ghettoq
+
+# spawning dependencies
+PasteDeploy

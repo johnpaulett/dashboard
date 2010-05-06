@@ -4,9 +4,13 @@ Installation
 ::
     sudo apt-get install python-dev postgresql-server-dev-8.4 libxml2-dev libxslt-dev 
 
-
 ::
-    cd $PROJECTHOME
+    mkdir $HOME/apps
+    cd !$
+
+    git clone git://github.com/johnpaulett/dashboard.git
+
+    cd dashboard
     virtualenv --no-site-packages env
     source env/bin/activate
     easy_install pip
