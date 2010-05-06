@@ -19,5 +19,5 @@ Werkzeug
 
 # celery depedencies
 celery
-celerymon
+#celerymon
 ghettoq
